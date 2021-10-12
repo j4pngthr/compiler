@@ -38,6 +38,11 @@ int lexan() {
       return symtable[p].token;
     } else if (t == EOF) {
       return DONE;
+    } else if (t == ':') {
+      t = getchar();
+      if (t == '=') {
+        return ASSIGN;
+      }
     } else {
       tokenval = NONE;
       return t;

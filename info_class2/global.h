@@ -15,6 +15,7 @@
 #define MOD	258
 #define ID	259
 #define DONE	260
+#define ASSIGN 261
 
 struct entry {
 	char *lexptr;
