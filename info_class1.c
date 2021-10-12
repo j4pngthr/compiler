@@ -1,9 +1,11 @@
-// add *, /
+// add ()
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 int lookahead;
+
+void expr();
 
 void error() {
   printf("syntax error\n");
@@ -24,6 +26,9 @@ void factor() { // leaf, output number and get operator
   if (isdigit(lookahead)) {
     putchar(lookahead);
     match(lookahead);
+  } else if (lookahead == '(') {
+    match(lookahead);
+    expr();
   } else {
     error();
   }
@@ -41,6 +46,9 @@ void term() {
       factor();
       putchar('/');
     } else if (lookahead == '+' || lookahead == '-' || lookahead == '\n') {
+      break;
+    } else if (lookahead == ')') {
+      match(lookahead);
       break;
     } else {
       error();
