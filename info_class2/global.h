@@ -20,12 +20,12 @@
 #define ID	259
 #define DONE	260
 
-int tokenval;
-int lineno;
-
 struct entry {
 	char *lexptr;
 	int token;
 };
 
-struct entry symtable[];
+extern int tokenval;
+extern int lineno;
+
+extern struct entry symtable[];
