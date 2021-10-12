@@ -1,3 +1,6 @@
+#ifndef GLOBAL_H
+#define GLOBAL_H
+
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -28,4 +31,4 @@ struct entry {
 extern int tokenval;
 extern int lineno;
 
-extern struct entry symtable[];
+#endif

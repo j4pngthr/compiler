@@ -2,5 +2,3 @@
 
 int tokenval;
 int lineno;
-
-struct entry symtable[1000];
