@@ -27,11 +27,12 @@ void expr() {
 }
 
 void term() {
+  int t;
   factor();
   while(1) {
     switch (lookahead) {
       case '*': case '/': case DIV: case MOD:
-        int t = lookahead;
+        t = lookahead;
         match(lookahead);
         factor();
         emit(t, NONE);
