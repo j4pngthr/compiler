@@ -22,7 +22,7 @@ void expr() {
       emit(t, NONE);
       continue;
     default:
-      return 0;
+      return;
     }
 }
 
