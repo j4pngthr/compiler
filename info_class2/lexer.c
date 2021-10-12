@@ -3,7 +3,7 @@
 #include "error.h"
 
 char  lexbuf[BSIZE];
-int  lineno = 1;
+int  lineno = 1; // こんなとこにduplicate
 int  tokenval = NONE;
 
 int lexan() {
