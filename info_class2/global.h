@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 #define BSIZE	128
 #define NONE	-1
@@ -20,4 +21,3 @@ struct entry {
 };
 
 struct entry symtable[];
-
