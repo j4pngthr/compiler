@@ -3,4 +3,7 @@
 
 int lexan();
 
+extern int tokenval;
+extern int lineno;
+
 #endif

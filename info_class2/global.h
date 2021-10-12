@@ -21,7 +21,4 @@ struct entry {
 	int token;
 };
 
-extern int tokenval;
-extern int lineno;
-
 #endif
