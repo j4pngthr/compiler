@@ -1,7 +1,7 @@
 #ifndef SYMBOL_H
 #define SYMBOL_H
 
-#include"global.h"
+#include "global.h"
 
 int lookup(char s[]);
 int insert(char s[], int tok);

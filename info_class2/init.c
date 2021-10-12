@@ -1,4 +1,5 @@
 #include "global.h"
+#include "symbol.h" // 先にsymbolをincludeしたら，構造体を定義してないのにextern出てまずい？
 
 struct entry keywords[] = {
   "div", DIV,

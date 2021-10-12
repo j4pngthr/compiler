@@ -1,4 +1,8 @@
 #include "global.h"
+#include "emitter.h"
+#include "error.h"
+#include "lexer.h"
+#include "parser.h"
 
 int lookahead;
 

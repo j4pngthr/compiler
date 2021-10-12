@@ -1,4 +1,6 @@
 #include "global.h"
+#include "symbol.h"
+#include "error.h"
 
 char  lexbuf[BSIZE];
 int  lineno = 1;

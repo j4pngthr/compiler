@@ -6,13 +6,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include"emitter.h"
-#include"error.h"
-#include"init.h"
-#include"lexer.h"
-#include"parser.h"
-#include"symbol.h"
-
 #define BSIZE	128
 #define NONE	-1
 #define EOS	'\0'

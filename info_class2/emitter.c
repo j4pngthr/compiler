@@ -1,4 +1,5 @@
 #include "global.h"
+#include "symbol.h"
 
 void emit(int t, int tval) {
   switch(t) {

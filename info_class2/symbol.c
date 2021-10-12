@@ -1,4 +1,5 @@
 #include "global.h"
+#include "error.h"
 
 #define STRMAX  999
 #define SYMMAX  100
