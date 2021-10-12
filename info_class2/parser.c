@@ -33,19 +33,19 @@ void expr() {
 }
 
 void term() {
-  int t;
   factor();
-  while(1)
+  while(1) {
     switch (lookahead) {
-    case '*': case '/': case DIV: case MOD:
-      t = lookahead;
-      match(lookahead);
-      factor();
-      emit(t, NONE);
-      continue;
-    default:
-      return 0;
+      case '*': case '/': case DIV: case MOD:
+        int t = lookahead;
+        match(lookahead);
+        factor();
+        emit(t, NONE);
+        continue;
+      default:
+        return;
     }
+  }
 }
 
 void factor() {
