@@ -23,15 +23,16 @@ int lexan() {
         lexbuf[b] = t;
         t = getchar();
         b = b + 1;
-        if (b >= BSIZE)
+        if (b >= BSIZE) {
           error("compiler error");
+        }
       }
       lexbuf[b] = EOS;
-      if (t !=EOF) {
+      if (t != EOF) {
         ungetc(t, stdin);
       }
-      p = lookup(lexbuf);
-      if (p == 0) {
+      p = lookup(lexbuf); // すでに登録された文字列か探す
+      if (p == 0) { // 未登録
         p = insert(lexbuf, ID);
       }
       tokenval = p;
