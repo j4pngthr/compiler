@@ -19,20 +19,22 @@ void stmt() {
   if (lookahead == ID) {
     printf("lvalue ");
     emit(ID, tokenval);
-    match(ID);
-    if (lookahead == ASSIGN) {
+    match(ID); // 先読み
+    if (lookahead == ASSIGN) { // :
       match(ASSIGN);
       expr();
       printf(":=\n");
     }
   } else if (lookahead == BEGIN) {
-
+    match(lookahead);
+    while (lookahead != END) {
+      stmt();
+    }
+    // parseに上がってmatch(;)
   } else if (lookahead == WHILE) {
 
   } else if (lookahead == IF) {
 
-  } else if (lookahead == NUM) {
-    expr();
   } else {
     error("invalid statement");
   }
@@ -79,10 +81,12 @@ void factor() {
       match(')');
       break;
     case NUM:
+      printf("push ");
       emit(NUM, tokenval);
       match(NUM);
       break;
     case ID:
+      printf("rvalue ");
       emit(ID, tokenval);
       match(ID);
       break;
