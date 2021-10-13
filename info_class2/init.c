@@ -4,6 +4,10 @@
 struct entry keywords[] = {
   "div", DIV,
   "mod", MOD,
+  "begin", BEGIN,
+  "end", END,
+  "if", IF,
+  "while", WHILE,
   0, 0 // initのforの継続条件で0になって終了
 };
 
