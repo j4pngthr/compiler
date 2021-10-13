@@ -4,7 +4,7 @@
 struct entry keywords[] = {
   "div", DIV,
   "mod", MOD,
-  0, 0
+  0, 0 // initのforの継続条件で0になって終了
 };
 
 void init() {

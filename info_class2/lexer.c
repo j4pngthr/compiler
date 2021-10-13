@@ -17,12 +17,12 @@ int lexan() {
       ungetc(t, stdin);
       scanf("%d", &tokenval); // scanf_s("%d, &tokenval") in Windows
       return NUM;
-    } else if (isalpha(t)) {
+    } else if (isalpha(t)) { // tが英字 文字列の先頭
       int p,b = 0;
-      while (isalnum(t)) {
+      while (isalnum(t)) { // tが英数字 '0'-'9','A'-'Z','a'-'z' 2文字目以降
         lexbuf[b] = t;
         t = getchar();
-        b = b + 1;
+        ++b;
         if (b >= BSIZE) {
           error("compiler error");
         }
@@ -32,8 +32,9 @@ int lexan() {
         ungetc(t, stdin);
       }
       p = lookup(lexbuf); // すでに登録された文字列か探す
+      printf("%s %d\n", lexbuf, p);
       if (p == 0) { // 未登録
-        p = insert(lexbuf, ID);
+        p = insert(lexbuf, ID); // 文字列のトークンはID
       }
       tokenval = p;
       return symtable[p].token;
