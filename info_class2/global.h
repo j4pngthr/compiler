@@ -19,7 +19,8 @@
 #define MOD	265
 #define NONE	-1
 #define NUM	266
-#define WHILE 267
+#define THEN 267
+#define WHILE 268
 
 struct entry {
 	char *lexptr;

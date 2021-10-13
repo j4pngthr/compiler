@@ -9,6 +9,7 @@ struct entry keywords[] = {
   "end", END,
   "if", IF,
   "mod", MOD,
+  "then", THEN,
   "while", WHILE,
   0, 0 // initのforの継続条件で0になって終了
 };

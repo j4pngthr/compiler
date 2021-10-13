@@ -24,7 +24,7 @@ void stmt() {
       match(ASSIGN); // :=の次の文字を読む
       expr();
       printf(":=\n");
-    } 
+    }
   } else if (lookahead == BEGIN) {
     match(BEGIN);
     while (lookahead != END) {
@@ -44,7 +44,12 @@ void stmt() {
     printf("goto test\n");
     printf("label out\n");
   } else if (lookahead == IF) {
-
+    match(IF);
+    cond();
+    printf("gofalse outif\n");
+    match(THEN);
+    stmt();
+    printf("label outif\n");
   } else {
     error("invalid statement");
   }
