@@ -21,7 +21,7 @@ void stmt() {
     emit(ID, tokenval);
     match(ID); // 先読み
     if (lookahead == ASSIGN) { // :
-      match(ASSIGN);
+      match(ASSIGN); // :=の次の文字を読む
       expr();
       printf(":=\n");
     }

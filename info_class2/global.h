@@ -25,4 +25,7 @@ struct entry {
 	int token;
 };
 
+extern FILE *fp;
+
+
 #endif
