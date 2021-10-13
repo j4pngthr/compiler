@@ -8,9 +8,33 @@ int lookahead;
 
 void parse() {
   lookahead = lexan();
-  while (lookahead != DONE) {
-    expr();
+  // ;区切り
+  while (lookahead != DONE) { // 式;という形のみ :=を認識できるように
+    stmt();
     match(';');
+  }
+}
+
+void stmt() {
+  if (lookahead == ID) {
+    printf("lvalue ");
+    emit(ID, tokenval);
+    match(ID);
+    if (lookahead == ASSIGN) {
+      match(ASSIGN);
+      expr();
+      printf(":=\n");
+    }
+  } else if (lookahead == BEGIN) {
+
+  } else if (lookahead == WHILE) {
+
+  } else if (lookahead == IF) {
+
+  } else if (lookahead == NUM) {
+    expr();
+  } else {
+    error("invalid statement");
   }
 }
 
@@ -23,7 +47,7 @@ void expr() {
         t = lookahead;
         match(lookahead);
         term();
-        emit(t, NONE);
+        emit(t, NONE); // NONEはどうでもいい t=+or-が意味を持つ
         continue;
       default:
         return;
@@ -67,6 +91,7 @@ void factor() {
   }
 }
 
+// 次の単語を読む
 void match(int t) {
   if (lookahead == t) {
     lookahead = lexan();

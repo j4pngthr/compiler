@@ -6,5 +6,6 @@ void expr();
 void term();
 void factor();
 void match(int t);
+void stmt();
 
 #endif
