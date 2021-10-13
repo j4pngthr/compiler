@@ -5,6 +5,7 @@ struct entry keywords[] = {
   "assign", ASSIGN,
   "begin", BEGIN,
   "div", DIV,
+  "do", DO,
   "end", END,
   "if", IF,
   "mod", MOD,

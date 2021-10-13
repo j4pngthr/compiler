@@ -24,9 +24,9 @@ void stmt() {
       match(ASSIGN); // :=の次の文字を読む
       expr();
       printf(":=\n");
-    }
+    } 
   } else if (lookahead == BEGIN) {
-    match(lookahead);
+    match(BEGIN);
     while (lookahead != END) {
       stmt();
       // printf("parser_begin %d\n", lookahead);
@@ -35,11 +35,36 @@ void stmt() {
     }
     match(END);
   } else if (lookahead == WHILE) {
-
+    match(WHILE);
+    printf("label test\n");
+    cond();
+    printf("gofalse out\n");
+    match(DO);
+    stmt();
+    printf("goto test\n");
+    printf("label out\n");
   } else if (lookahead == IF) {
 
   } else {
     error("invalid statement");
+  }
+}
+
+void cond() { // 条件式
+  int t;
+  expr();
+  // printf("%c\n", lookahead);
+  while(1) {
+    switch (lookahead) {
+      case '<': case '>': case '=':
+        t = lookahead;
+        match(lookahead);
+        expr();
+        emit(t, NONE);
+        continue;
+      default:
+        return;
+    }
   }
 }
 

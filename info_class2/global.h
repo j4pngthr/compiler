@@ -10,22 +10,23 @@
 #define BEGIN 258
 #define BSIZE	128
 #define DIV	259
-#define DONE	260
-#define END 261
+#define DO 260
+#define DONE	261
+#define END 262
 #define EOS	'\0'
-#define ID	262
-#define IF 263
-#define MOD	264
+#define ID	263
+#define IF 264
+#define MOD	265
 #define NONE	-1
-#define NUM	265
-#define WHILE 266
+#define NUM	266
+#define WHILE 267
 
 struct entry {
 	char *lexptr;
 	int token;
 };
 
-extern FILE *fp;
-
+// extern FILE *fp;
+// extern char scanword[];
 
 #endif

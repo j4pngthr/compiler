@@ -7,5 +7,6 @@ void term();
 void factor();
 void match(int t);
 void stmt();
+void cond();
 
 #endif
