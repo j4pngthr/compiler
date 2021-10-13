@@ -6,20 +6,19 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define ASSIGN 257
+#define BEGIN 258
 #define BSIZE	128
-#define NONE	-1
-#define EOS	'\0'
-
-#define NUM	256
-#define DIV	257
-#define MOD	258
-#define ID	259
+#define DIV	259
 #define DONE	260
-#define ASSIGN 261
-#define BEGIN 262
-#define WHILE 263
-#define IF 264
-#define END 265
+#define END 261
+#define EOS	'\0'
+#define ID	262
+#define IF 263
+#define MOD	264
+#define NONE	-1
+#define NUM	265
+#define WHILE 266
 
 struct entry {
 	char *lexptr;

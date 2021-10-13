@@ -29,8 +29,11 @@ void stmt() {
     match(lookahead);
     while (lookahead != END) {
       stmt();
+      // printf("parser_begin %d\n", lookahead);
+      match(';');
+      // printf("%d\n", lookahead);
     }
-    // parseに上がってmatch(;)
+    match(END);
   } else if (lookahead == WHILE) {
 
   } else if (lookahead == IF) {
@@ -91,15 +94,17 @@ void factor() {
       match(ID);
       break;
     default:
-      error("syntax error");
+      error("syntax error(factor)");
   }
 }
 
 // 次の単語を読む
 void match(int t) {
   if (lookahead == t) {
+    // putchar('a');
+    // putchar('\n');
     lookahead = lexan();
   } else {
-    error("syntax error");
+    error("syntax error(match)");
   }
 }

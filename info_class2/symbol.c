@@ -22,6 +22,7 @@ int lookup(char s[]) {
 // 単語の追加
 // sのエントリの位置を返す
 int insert(char s[], int tok) {
+  // printf("insert %s %d\n", s, tok);
   int len = strlen(s);
   if (lastentry + 1 >= SYMMAX) {
     error("symbol table full");
