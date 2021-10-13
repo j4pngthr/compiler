@@ -19,14 +19,14 @@ void expr() {
   term();
   while(1)
     switch (lookahead) {
-    case '+': case '-':
-      t = lookahead;
-      match(lookahead);
-      term();
-      emit(t, NONE);
-      continue;
-    default:
-      return;
+      case '+': case '-':
+        t = lookahead;
+        match(lookahead);
+        term();
+        emit(t, NONE);
+        continue;
+      default:
+        return;
     }
 }
 
