@@ -32,7 +32,7 @@ int lexan() {
         ungetc(t, stdin);
       }
       p = lookup(lexbuf); // すでに登録された文字列か探す
-      printf("%s %d\n", lexbuf, p);
+      // printf("%s %d\n", lexbuf, p);
       if (p == 0) { // 未登録
         p = insert(lexbuf, ID); // 文字列のトークンはID
       }
