@@ -16,6 +16,10 @@
 #define ID	259
 #define DONE	260
 #define ASSIGN 261
+#define BEGIN 262
+#define WHILE 263
+#define IF 264
+#define END 265
 
 struct entry {
 	char *lexptr;
