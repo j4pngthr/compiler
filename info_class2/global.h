@@ -27,7 +27,7 @@ struct entry {
 	int token;
 };
 
-// extern FILE *fp;
-// extern char scanword[];
+extern FILE *fp;
+extern char scanword[];
 
 #endif
