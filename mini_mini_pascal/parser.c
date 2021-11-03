@@ -5,6 +5,7 @@
 #include "parser.h"
 
 int lookahead;
+int tmp_tokenval = NONE;
 
 void parse() {
   lookahead = lexan();
@@ -63,7 +64,11 @@ void stmt() {
   } else if (lookahead == WRITE) {
     match(WRITE);
     match('(');
+    printf("STR ");
+    tmp_tokenval = tokenval;
     factor();
+    printf("PUT ");
+    emit(ID, tmp_tokenval);
     match(')');
   } else {
     error("invalid statement");
