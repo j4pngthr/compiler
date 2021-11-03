@@ -1,1 +1,6 @@
-while i < 20 do i := i + 1; endwhile;
+a := 0;
+k:= 1;
+while k < l + 1 do
+  a := a + k;
+  k := k + 1;
+endwhile;

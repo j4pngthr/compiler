@@ -40,8 +40,10 @@ void stmt() {
     cond();
     printf("gofalse out\n");
     match(DO);
-    stmt();
-    match(';');
+    while (lookahead != ENDWHILE) {
+      stmt();
+      match(';');
+    }
     match(ENDWHILE); // 上がってmache(";")
     printf("goto test\n");
     printf("label out\n");
