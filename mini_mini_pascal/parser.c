@@ -18,13 +18,13 @@ void parse() {
 
 void stmt() {
   if (lookahead == ID) {
-    printf("lvalue ");
-    emit(ID, tokenval);
     match(ID); // 先読み
     if (lookahead == ASSIGN) { // :
+      tmp_tokenval = tokenval; // 左辺の文字を記録
       match(ASSIGN); // :=の次の文字を読む
       expr();
-      printf(":=\n");
+      printf("STR ");
+      emit(ID, tmp_tokenval);
     }
   } else if (lookahead == BEGIN) {
     match(BEGIN);
@@ -59,16 +59,15 @@ void stmt() {
     match(READ);
     printf("GET ");
     match('(');
-    factor();
+    emit(ID, tokenval);
+    match(ID);
     match(')');
   } else if (lookahead == WRITE) {
     match(WRITE);
     match('(');
-    printf("STR ");
-    tmp_tokenval = tokenval;
-    factor();
     printf("PUT ");
-    emit(ID, tmp_tokenval);
+    emit(ID, tokenval);
+    match(ID);
     match(')');
   } else {
     error("invalid statement");
@@ -134,12 +133,12 @@ void factor() {
       match(')');
       break;
     case NUM:
-      // printf("push ");
+      printf("LDC ");
       emit(NUM, tokenval);
       match(NUM);
       break;
     case ID:
-      // printf("rvalue ");
+      printf("LOD ");
       emit(ID, tokenval);
       match(ID);
       break;
