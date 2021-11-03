@@ -10,8 +10,10 @@ struct entry keywords[] = {
   "endwhile", ENDWHILE,
   "if", IF,
   "mod", MOD,
+  "read", READ,
   "then", THEN,
   "while", WHILE,
+  "write", WRITE,
   0, 0 // initのforの継続条件で0になって終了
 };
 

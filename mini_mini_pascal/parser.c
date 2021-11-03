@@ -54,6 +54,16 @@ void stmt() {
     match(THEN);
     stmt();
     printf("label outif\n");
+  } else if (lookahead == READ) {
+    match(READ);
+    match('(');
+    factor();
+    match(')');
+  } else if (lookahead == WRITE) {
+    match(WRITE);
+    match('(');
+    factor();
+    match(')');
   } else {
     error("invalid statement");
   }
