@@ -3,7 +3,10 @@
 
 void emit(int t, int tval) {
   switch(t) {
-    case '+': case '-': case '*': case '/': case '<': case '>': case '=':
+    case '+':
+      printf("ADD\n");
+      break;
+    case '-': case '*': case '/': case '<': case '>': case '=':
       printf("%c\n", t);
       break;
     case DIV:
@@ -16,7 +19,7 @@ void emit(int t, int tval) {
       printf("%d\n", tval);
       break;
     case ID:
-      printf("%s\n", symtable[tval].lexptr);
+      printf("%d\n", symtable[tval].lexptr[0] - 'a');
       break;
     default:
       printf("token %d, tokenval %d\n", t, tval);

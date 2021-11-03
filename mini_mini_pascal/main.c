@@ -8,10 +8,11 @@ char scanword[256];
 
 void main() {
   init();
-  
-  printf("ファイル名:");
-  char filename[BUFFER_SIZE];
-  scanf("%s", filename);
+
+  // printf("ファイル名:");
+  // char filename[BUFFER_SIZE];
+  // scanf("%s", filename);
+  char filename[] = "input_data.txt";
   if ((fp = fopen(filename, "r")) == NULL) {
     printf("ファイルオープン失敗\n");
     return;

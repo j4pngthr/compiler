@@ -56,6 +56,7 @@ void stmt() {
     printf("label outif\n");
   } else if (lookahead == READ) {
     match(READ);
+    printf("GET ");
     match('(');
     factor();
     match(')');
@@ -128,12 +129,12 @@ void factor() {
       match(')');
       break;
     case NUM:
-      printf("push ");
+      // printf("push ");
       emit(NUM, tokenval);
       match(NUM);
       break;
     case ID:
-      printf("rvalue ");
+      // printf("rvalue ");
       emit(ID, tokenval);
       match(ID);
       break;
