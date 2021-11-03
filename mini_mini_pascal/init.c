@@ -7,6 +7,7 @@ struct entry keywords[] = {
   "div", DIV,
   "do", DO,
   "end", END,
+  "endwhile", ENDWHILE,
   "if", IF,
   "mod", MOD,
   "then", THEN,

@@ -41,6 +41,8 @@ void stmt() {
     printf("gofalse out\n");
     match(DO);
     stmt();
+    match(';');
+    match(ENDWHILE); // 上がってmache(";")
     printf("goto test\n");
     printf("label out\n");
   } else if (lookahead == IF) {

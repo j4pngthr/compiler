@@ -13,14 +13,17 @@
 #define DO 260
 #define DONE	261
 #define END 262
+#define ENDWHILE 263
 #define EOS	'\0'
-#define ID	263
-#define IF 264
-#define MOD	265
+#define ID	264
+#define IF 265
+#define MOD	266
 #define NONE	-1
-#define NUM	266
-#define THEN 267
-#define WHILE 268
+#define NUM	267
+#define READ 268
+#define THEN 269
+#define WHILE 270
+#define WRITE 271
 
 struct entry {
 	char *lexptr;
