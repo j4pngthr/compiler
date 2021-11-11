@@ -22,9 +22,9 @@ void match(int t) { // get next char
   }
 }
 
-void factor() { // leaf, output number and get operator
+void factor() {
   if (isdigit(lookahead)) {
-    putchar(lookahead);
+    putchar(lookahead); // 先に出力してからlookahead変えないと
     match(lookahead);
   } else if (lookahead == '(') {
     match(lookahead);
@@ -34,7 +34,7 @@ void factor() { // leaf, output number and get operator
   }
 }
 
-void term() {
+void term() { // 項は要素を*, /で結んだもの
   factor();
   while (1) {
     if (lookahead == '*') {
@@ -56,8 +56,8 @@ void term() {
   }
 }
 
-void expr() {
-  term();
+void expr() { // 式は項を+, -で結んだもの
+  term(); // *, /が最初に来たらここで処理
   while (1) {
     if (lookahead == '+') {
       match('+');
