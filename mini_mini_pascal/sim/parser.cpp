@@ -1,8 +1,9 @@
-#include "global.h"
-#include "emitter.h"
-#include "error.h"
-#include "lexer.h"
-#include "parser.h"
+#include "global.hpp"
+
+#include "emitter.hpp"
+#include "error.hpp"
+#include "lexer.hpp"
+#include "parser.hpp"
 
 int lookahead;
 int tmp_tokenval = NONE;

@@ -1,10 +1,8 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 #define ASSIGN 257
 #define BEGIN 258
@@ -26,11 +24,12 @@
 #define WRITE 271
 
 struct entry {
-	char *lexptr;
+  string lexptr;
 	int token;
 };
 
 extern FILE *fp;
-extern char scanword[];
+extern string scanword;
+extern vector<string> ans;
 
 #endif

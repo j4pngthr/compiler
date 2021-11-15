@@ -1,10 +1,10 @@
-#include "global.h"
-#include "symbol.h"
-#include "error.h"
+#include "global.hpp"
+#include "symbol.hpp"
+#include "error.hpp"
 
-char  lexbuf[BSIZE];
-int  lineno = 1; // こんなとこにduplicate
-int  tokenval = NONE;
+char lexbuf[BSIZE];
+int lineno = 1; // こんなとこにduplicate
+int tokenval = NONE;
 
 int lexan() {
   while(1) {
@@ -51,7 +51,7 @@ int lexan() {
       // printf("lexan_isalpha %d %d\n", p, symtable[p].token);
       tokenval = p;
       return symtable[p].token;
-    } else if (t == EOF) {
+    } else if (t == '.') {
       return DONE;
     } else if (t == ':') {
       // t = getchar();

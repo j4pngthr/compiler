@@ -1,10 +1,10 @@
 #ifndef SYMBOL_H
 #define SYMBOL_H
 
-#include "global.h"
+#include "global.hpp"
 
-int lookup(char s[]);
-int insert(char s[], int tok);
+int lookup(string s);
+int insert(string s, int tok);
 
 extern struct entry symtable[];
 

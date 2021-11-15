@@ -1,8 +1,8 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include"global.hpp"
+
+#include"error.hpp"
 
 void calc(string);
-void error(string);
 void exeIstr(string, int);
 bool isOpr(string);
 // program counter
@@ -26,11 +26,6 @@ void calc(string com) {
       --stk_ptr;
     }
   }
-}
-
-void error(string msg) {
-  cerr << msg << endl;
-  exit(0);
 }
 
 // execute instruction
@@ -73,7 +68,7 @@ bool isOpr(string com) {
   return 0;
 }
 
-int objExe() {
+void objExe() {
   ifstream ifs("../obj.txt");
   if (ifs.fail()) error("Failed to open file.");
   {
@@ -89,5 +84,5 @@ int objExe() {
       exeIstr(com, num);
     }
   }
-
+  return;
 }

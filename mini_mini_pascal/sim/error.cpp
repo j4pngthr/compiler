@@ -1,7 +1,7 @@
-#include "global.h"
-#include "lexer.h"
+#include "global.hpp"
+#include "lexer.hpp"
 
-void error(char *m) {
-  fprintf(stderr, "line %d: %s\n", lineno, m);
+void error(string m) {
+  cerr << "line " << lineno << ": " << m << endl; 
   exit(1);
 }
