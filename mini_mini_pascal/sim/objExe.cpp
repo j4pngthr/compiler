@@ -73,8 +73,8 @@ bool isOpr(string com) {
   return 0;
 }
 
-int main() {
-  ifstream ifs("./obj.txt");
+int objExe() {
+  ifstream ifs("../obj.txt");
   if (ifs.fail()) error("Failed to open file.");
   {
     string str;
