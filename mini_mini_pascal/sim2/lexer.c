@@ -3,13 +3,14 @@
 #include "error.h"
 
 char  lexbuf[BSIZE];
-int  lineno = 1; // こんなとこにduplicate
+int  lineno = 1; // 読み込むファイルの行番号 エラー処理で使う
 int  tokenval = NONE;
 
 int lexan() {
   while(1) {
     // int t = getchar();
     int t = fgetc(fp);
+    // printf("\"%c\"\n", t);
     // printf("lexan %c\n", t);
     if (t == ' ' || t == '\t') {
 
@@ -51,7 +52,7 @@ int lexan() {
       // printf("lexan_isalpha %d %d\n", p, symtable[p].token);
       tokenval = p;
       return symtable[p].token;
-    } else if (t == EOF) {
+    } else if (t == '.') { // EOF to '.'
       return DONE;
     } else if (t == ':') {
       // t = getchar();
@@ -59,9 +60,8 @@ int lexan() {
       if (t == '=') {
         return ASSIGN;
       }
-    } else { // ;
+    } else { // ;,
       tokenval = NONE;
-      // printf("lexan else %d\n", t);
       return t;
     }
   }

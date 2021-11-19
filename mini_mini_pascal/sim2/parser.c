@@ -8,10 +8,11 @@ int lookahead;
 
 void parse() {
   lookahead = lexan();
+  stmt();
   // ;区切り
   while (lookahead != DONE) { // 式;という形のみ :=を認識できるように
-    stmt();
     match(';');
+    stmt();
   }
 }
 
@@ -25,15 +26,6 @@ void stmt() {
       expr();
       printf(":=\n");
     }
-  } else if (lookahead == BEGIN) {
-    match(BEGIN);
-    while (lookahead != END) {
-      stmt();
-      // printf("parser_begin %d\n", lookahead);
-      match(';');
-      // printf("%d\n", lookahead);
-    }
-    match(END);
   } else if (lookahead == WHILE) {
     match(WHILE);
     printf("label test\n");
@@ -43,13 +35,6 @@ void stmt() {
     stmt();
     printf("goto test\n");
     printf("label out\n");
-  } else if (lookahead == IF) {
-    match(IF);
-    cond();
-    printf("gofalse outif\n");
-    match(THEN);
-    stmt();
-    printf("label outif\n");
   } else {
     error("invalid statement");
   }

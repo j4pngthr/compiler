@@ -11,7 +11,7 @@ int lastentry = 0; // symtableで最後に使用した位置 p73
 
 int lookup(char s[]) {
   for (int p = lastentry; p > 0; --p) { // 逆から見る意味 あとp＝0のときは？
-    // printf("%d %s %s\n", p, symtable[p].lexptr, s);
+    // printf("%d %s\n", p, symtable[p].lexptr);
     if (strcmp(symtable[p].lexptr, s) == 0) {
       return p;
     }
@@ -35,6 +35,7 @@ int insert(char s[], int tok) {
   // 0番にはない
   symtable[lastentry].token = tok;
   symtable[lastentry].lexptr = &lexemes[lastchar + 1]; // 最後に使用した位置の次の位置へのポインタ p73
+  // printf("%s %d\n", s, lastentry);
   lastchar += len + 1; // +1はEOS
   strcpy(symtable[lastentry].lexptr, s); // lexemesに書き込まれる
   // for (int i = 0; i < 10; ++i) printf("%d%c ", i, lexemes[i]);
