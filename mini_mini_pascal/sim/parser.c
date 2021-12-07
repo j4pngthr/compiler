@@ -9,10 +9,11 @@ int tmp_tokenval = NONE;
 
 void parse() {
   lookahead = lexan();
+  stmt();
   // ;区切り
   while (lookahead != DONE) { // 式;という形のみ :=を認識できるように
-    stmt();
     match(';');
+    stmt();
   }
 }
 
@@ -154,6 +155,7 @@ void match(int t) {
     // putchar('\n');
     lookahead = lexan();
   } else {
+    printf("%d\n", lineno);
     error("syntax error(match)");
   }
 }

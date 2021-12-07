@@ -51,7 +51,7 @@ int lexan() {
       // printf("lexan_isalpha %d %d\n", p, symtable[p].token);
       tokenval = p;
       return symtable[p].token;
-    } else if (t == EOF) {
+    } else if (t == '.') {
       return DONE;
     } else if (t == ':') {
       // t = getchar();
