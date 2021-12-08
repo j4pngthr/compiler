@@ -1,5 +1,4 @@
 #include"global.hpp"
-
 #include"error.hpp"
 
 void calc(string);
@@ -69,7 +68,7 @@ bool isOpr(string com) {
 }
 
 void objExe() {
-  ifstream ifs("../obj.txt");
+  ifstream ifs("./obj.txt");
   if (ifs.fail()) error("Failed to open file.");
   {
     string str;
@@ -79,7 +78,8 @@ void objExe() {
         num = stoi(str.substr(4));
       }
       string com = str.substr(0, 3);
-      // cerr << com << " " << num << endl;
+      if (isOpr(com)) cerr << com << endl;
+      else cerr << com << " " << num << endl;
 
       exeIstr(com, num);
     }
