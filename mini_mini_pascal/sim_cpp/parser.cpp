@@ -1,9 +1,10 @@
-#include "global.hpp"
+#include"global.hpp"
 
-#include "emitter.hpp"
-#include "error.hpp"
-#include "lexer.hpp"
-#include "parser.hpp"
+#include"emitter.hpp"
+#include"error.hpp"
+#include"lexer.hpp"
+#include"parser.hpp"
+#include"symbol.hpp"
 
 int lookahead;
 int tmp_tokenval = NONE;
@@ -25,8 +26,7 @@ void stmt() {
       tmp_tokenval = tokenval; // 左辺の文字を記録
       match(ASSIGN); // :=の次の文字を読む
       expr();
-      printf("STR ");
-      emit(ID, tmp_tokenval);
+      emit("STR ", ID, tmp_tokenval);
     }
   } else if (lookahead == BEGIN) {
     match(BEGIN);
@@ -38,37 +38,46 @@ void stmt() {
     }
     match(END);
   } else if (lookahead == WHILE) {
+    int ujp_line = sz(ans);
     match(WHILE);
     // printf("label test\n");
     cond();
     // printf("gofalse out\n");
+    ans.eb("CJP ");
     match(DO);
     while (lookahead != ENDWHILE) {
       stmt();
       match(';');
     }
+    ans.eb("UJP " + to_string(ujp_line));
+
+    for (int i = sz(ans) - 1; i >= 0; --i) {
+      if (ans[i].substr(0, 3) == "CJP") {
+        ans[i] += to_string(sz(ans));
+        break;
+      }
+    }
+
     match(ENDWHILE); // 上がってmache(";")
     // printf("goto test\n");
     // printf("label out\n");
   } else if (lookahead == IF) {
     match(IF);
     cond();
-    printf("gofalse outif\n");
+    ans.eb("gofalse outif");
     match(THEN);
     stmt();
-    printf("label outif\n");
+    ans.eb("label outif");
   } else if (lookahead == READ) {
     match(READ);
-    printf("GET ");
     match('(');
-    emit(ID, tokenval);
+    emit("GET ", ID, tokenval);
     match(ID);
     match(')');
   } else if (lookahead == WRITE) {
     match(WRITE);
     match('(');
-    printf("PUT ");
-    emit(ID, tokenval);
+    emit("PUT ", ID, tokenval);
     match(ID);
     match(')');
   } else {
@@ -135,13 +144,11 @@ void factor() {
       match(')');
       break;
     case NUM:
-      printf("LDC ");
-      emit(NUM, tokenval);
+      emit("LDC ", NUM, tokenval);
       match(NUM);
       break;
     case ID:
-      printf("LOD ");
-      emit(ID, tokenval);
+      emit("LOD ", ID, tokenval);
       match(ID);
       break;
     default:

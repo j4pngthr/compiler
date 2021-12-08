@@ -4,25 +4,38 @@
 void emit(int t, int tval) {
   switch(t) {
     case '+':
-      printf("ADD\n");
+      ans.eb("ADD");
       break;
     case '<':
-      printf("LES\n");
+      ans.eb("LES");
       break;
     case '-': case '*': case '/': case '>': case '=':
-      printf("%c\n", t);
+      ans.eb(to_string(t));
       break;
     case DIV:
-      printf("DIV\n");
+      ans.eb("DIV");
       break;
     case MOD:
-      printf("MOD\n");
+      ans.eb("MOD");
       break;
     case NUM:
-      printf("%d\n", tval);
+      ans.eb(to_string(tval));
       break;
     case ID:
-      printf("%d\n", symtable[tval].lexptr[0] - 'a');
+      ans.eb(to_string(symtable[tval].lexptr[0] - 'a'));
+      break;
+    default:
+      printf("token %d, tokenval %d\n", t, tval);
+  }
+}
+
+void emit(string str, int t, int tval) {
+  switch(t) {
+    case NUM:
+      ans.eb(str + to_string(tval));
+      break;
+    case ID:
+      ans.eb(str + to_string(symtable[tval].lexptr[0] - 'a'));
       break;
     default:
       printf("token %d, tokenval %d\n", t, tval);

@@ -1,6 +1,7 @@
-#include "global.hpp"
-#include "init.hpp"
-#include "parser.hpp"
+#include"global.hpp"
+#include"init.hpp"
+#include"parser.hpp"
+#include"error.hpp"
 
 FILE *fp;
 string scanword;
@@ -14,9 +15,10 @@ int main() {
   // scanf("%s", filename);
   const char *filename = "../input_data3.txt";
   if ((fp = fopen(filename, "r")) == NULL) {
-    printf("ファイルオープン失敗\n");
-    return 0;
+    error("ファイルオープン失敗\n");
   }
 
   parse();
+
+  rep(i, sz(ans)) cerr << ans[i] << endl;
 }

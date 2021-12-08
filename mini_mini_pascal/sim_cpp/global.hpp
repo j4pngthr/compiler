@@ -3,6 +3,11 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+#define eb emplace_back
+#define rep(i, n) for (int i = 0; i < (n); ++i)
+#define rep3(i, l, n) for (int i = l; i < (n); ++i)
+#define sz(v) (int)v.size()
+#define endl '\n'
 
 #define ASSIGN 257
 #define BEGIN 258
