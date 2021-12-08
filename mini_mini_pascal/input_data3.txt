@@ -1,6 +1,8 @@
+read(l);
 a := 0;
 k:= 1;
 while k < l + 1 do
   a := a + k;
   k := k + 1;
 endwhile;
+write(a).
